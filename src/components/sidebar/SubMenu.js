@@ -1,5 +1,6 @@
 import React from "react";
 import { Accordion, Nav } from "react-bootstrap";
+import "./sidebar.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown, faCaretUp } from "@fortawesome/free-solid-svg-icons";
 import classNames from "classnames";
@@ -32,12 +33,8 @@ class SubMenu extends React.Component {
             eventKey="0"
             onClick={this.toggleNavbar}
           >
-            <FontAwesomeIcon icon={icon} className="mr-2" />
+            <img src={icon} alt="logo" className={"sidebar_image"} />
             {title}
-            <FontAwesomeIcon
-              icon={this.state.collapsed ? faCaretDown : faCaretUp}
-              className="float-right"
-            />
           </Accordion.Toggle>
 
           <Accordion.Collapse eventKey="0">
@@ -48,9 +45,9 @@ class SubMenu extends React.Component {
                     item === "Active" ? "active" : ""
                   } `}
                   href="/"
-                  key={item}
+                  key={item.key}
                 >
-                  {item}
+                  {item.name}
                 </a>
               ))}
             </nav>
